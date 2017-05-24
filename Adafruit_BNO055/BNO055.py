@@ -26,6 +26,7 @@ import time
 
 import serial
 
+import Adafruit_GPIO as GPIO
 
 # I2C addresses
 BNO055_ADDRESS_A                     = 0x28
@@ -219,7 +220,6 @@ class BNO055(object):
         self._rst = rst
         if self._rst is not None:
             if gpio is None:
-                import Adafruit_GPIO as GPIO
                 gpio = GPIO.get_platform_gpio()
             self._gpio = gpio
             # Setup the reset pin as an output at a high level.
